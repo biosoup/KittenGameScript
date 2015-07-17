@@ -19,6 +19,7 @@ autoCraft = setInterval(function() {
         ["wood",     "beam" ],
         ["minerals", "slab" ],
         ["coal",     "steel"],
+        ["titanium", "alloy"],
         ["iron",     "plate"]
        
     ];
