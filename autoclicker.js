@@ -11,7 +11,7 @@ autoPray = setInterval(function() {
 }, 10 * 1000);
  
 //AUTO OBSERVATORY
-starClick = setInterval(function() { $("#gameLog").find("input").click(); }, 10 * 1000);
+starClick = setInterval(function() { $("#gameLog").find("input").click(); }, 1 * 1000);
  
 //AUTOCRAFT
 autoCraft = setInterval(function() {
