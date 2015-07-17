@@ -42,13 +42,13 @@ autoHunt = setInterval(function() {
         if (gamePage.workshop.getCraft('parchment').unlocked)  { gamePage.craftAll('parchment');  }
     }
        
-    if (gamePage.workshop.getCraft('manuscript').unlocked && gamePage.resPool.get('parchment').value > 200) { gamePage.craft('manuscript', 1); }
+    if (gamePage.workshop.getCraft('manuscript').unlocked && gamePage.resPool.get('parchment').value > 300) { gamePage.craft('manuscript', 1); }
  
     var science = gamePage.resPool.get('science');
  
     if (science.value / science.maxValue > 0.98) {
-        if (gamePage.workshop.getCraft('compedium').unlocked && gamePage.resPool.get('manuscript').value > 200)  { gamePage.craft('compedium', 1);  }
-        if (gamePage.workshop.getCraft('blueprint').unlocked && gamePage.resPool.get('compedium').value > 200) { gamePage.craft('blueprint', 1); }
+        if (gamePage.workshop.getCraft('compedium').unlocked && gamePage.resPool.get('manuscript').value > 250)  { gamePage.craft('compedium', 1);  }
+        if (gamePage.workshop.getCraft('blueprint').unlocked && gamePage.resPool.get('compedium').value > 150) { gamePage.craft('blueprint', 1); }
     }
 }, 5 * 1000);
  
