@@ -41,9 +41,13 @@ autoHunt = setInterval(function() {
         $("a:contains('Send hunters')").click();
         if (gamePage.workshop.getCraft('parchment').unlocked)  { gamePage.craftAll('parchment');  }
     }
-       
-    if (gamePage.workshop.getCraft('manuscript').unlocked && gamePage.resPool.get('parchment').value > 300) { gamePage.craft('manuscript', 1); }
+    
+    var culture = gamePage.resPool.get('culture');
  
+    if (culture.value / culture.maxValue > 0.98) {
+        if (gamePage.workshop.getCraft('manuscript').unlocked && gamePage.resPool.get('parchment').value > 5000) { gamePage.craft('manuscript', 1); }
+    }
+    
     var science = gamePage.resPool.get('science');
  
     if (science.value / science.maxValue > 0.98) {
