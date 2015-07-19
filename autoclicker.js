@@ -37,7 +37,7 @@ autoCraft = setInterval(function() {
 // Start
 autoHunt = setInterval(function() {
     var catpower = gamePage.resPool.get('manpower');
-    if (catpower.value > 1500) {
+    if (catpower.value / catpower.maxValue > 0.98) {
         $("a:contains('Send hunters')").click();
         if (gamePage.workshop.getCraft('parchment').unlocked)  { gamePage.craftAll('parchment');  }
     }
