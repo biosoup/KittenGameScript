@@ -52,7 +52,7 @@ autoHunt = setInterval(function() {
  
     if (science.value / science.maxValue > 0.98) {
         if (gamePage.workshop.getCraft('compedium').unlocked && gamePage.resPool.get('manuscript').value > 250)  { gamePage.craft('compedium', 1);  }
-        if (gamePage.workshop.getCraft('blueprint').unlocked && gamePage.resPool.get('compedium').value > 150) { gamePage.craft('blueprint', 1); }
+        if (gamePage.workshop.getCraft('blueprint').unlocked && gamePage.resPool.get('compedium').value > 250) { gamePage.craft('blueprint', 1); }
     }
 }, 5 * 1000);
  
