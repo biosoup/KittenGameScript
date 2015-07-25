@@ -11,7 +11,7 @@ autoPray = setInterval(function() {
     }
     
     //Ziggurath Needed!
-    if (unicorns.value > 3000) {
+    if (unicorns.value > 10000) {
         gamePage.activeTabId = 'Religion'; gamePage.render();
         $(".btnContent:contains('Sacrifice Unicorns')").click();
         gamePage.activeTabId = origTab; gamePage.render();
