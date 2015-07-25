@@ -2,10 +2,18 @@
 autoPray = setInterval(function() {
     var origTab = gamePage.activeTabId;
     var faith = gamePage.resPool.get('faith');
+    var unicorns = gamePage.resPool.get('unicorns');
  
     if (faith.value / faith.maxValue > 0.99) {
         gamePage.activeTabId = 'Religion'; gamePage.render();
         $(".btnContent:contains('Praise the sun')").click();
+        gamePage.activeTabId = origTab; gamePage.render();
+    }
+    
+    //Ziggurath Needed!
+    if (unicorns.value > 3000) {
+        gamePage.activeTabId = 'Religion'; gamePage.render();
+        $(".btnContent:contains('Sacrifice Unicorns')").click();
         gamePage.activeTabId = origTab; gamePage.render();
     }
 }, 10 * 1000);
