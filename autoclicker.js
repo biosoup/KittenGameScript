@@ -39,7 +39,7 @@ autoCraft = setInterval(function() {
         }
     }
     
-    if (gamePage.resPool.get("titanium").value / gamePage.resPool.get("titanium")..maxValue > 0.98) {
+    if (gamePage.resPool.get("titanium").value / gamePage.resPool.get("titanium").maxValue > 0.98) {
         if (gamePage.workshop.getCraft('alloy').unlocked && gamePage.resPool.get('steel').value > 5000) { gamePage.craft('alloy', 1); }
     }
     
