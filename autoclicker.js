@@ -57,7 +57,7 @@ autoHunt = setInterval(function() {
     var culture = gamePage.resPool.get('culture');
  
     if (culture.value / culture.maxValue > 0.98) {
-        if (gamePage.workshop.getCraft('manuscript').unlocked && gamePage.resPool.get('parchment').value > 500) { gamePage.craft('manuscript', 1); }
+       // if (gamePage.workshop.getCraft('manuscript').unlocked && gamePage.resPool.get('parchment').value > 500) { gamePage.craft('manuscript', 1); }
     }
     
     var science = gamePage.resPool.get('science');
