@@ -11,7 +11,7 @@ autoPray = setInterval(function() {
     }
     
     //Ziggurath Needed!
-    if (unicorns.value > 20000) {
+    if (unicorns.value > 35000) {
         gamePage.activeTabId = 'Religion'; gamePage.render();
         $(".btnContent:contains('Sacrifice Unicorns')").click();
         gamePage.activeTabId = origTab; gamePage.render();
@@ -40,7 +40,7 @@ autoCraft = setInterval(function() {
     }
     
     if (gamePage.resPool.get("titanium").value / gamePage.resPool.get("titanium").maxValue > 0.98) {
-        if (gamePage.workshop.getCraft('alloy').unlocked && gamePage.resPool.get('steel').value > 25000) { gamePage.craft('alloy', 1); }
+        if (gamePage.workshop.getCraft('alloy').unlocked && gamePage.resPool.get('steel').value > 35000) { gamePage.craft('alloy', 1); }
     }
     
 }, 1 * 500);
@@ -64,7 +64,7 @@ autoHunt = setInterval(function() {
  
     if (science.value / science.maxValue > 0.98) {
         if (gamePage.workshop.getCraft('compedium').unlocked && gamePage.resPool.get('manuscript').value > 250)  { gamePage.craft('compedium', 1);  }
-        if (gamePage.workshop.getCraft('blueprint').unlocked && gamePage.resPool.get('compedium').value > 1550 && gamePage.resPool.get('blueprint').value < 250) { gamePage.craft('blueprint', 1); }
+        if (gamePage.workshop.getCraft('blueprint').unlocked && gamePage.resPool.get('compedium').value > 1550 && gamePage.resPool.get('blueprint').value < 450) { gamePage.craft('blueprint', 1); }
     }
 }, 5 * 1000);
  
