@@ -63,7 +63,7 @@ autoHunt = setInterval(function() {
     var science = gamePage.resPool.get('science');
  
     if (science.value / science.maxValue > 0.98) {
-        if (gamePage.workshop.getCraft('compedium').unlocked && gamePage.resPool.get('manuscript').value > 250)  { gamePage.craft('compedium', 1);  }
+        if (gamePage.workshop.getCraft('compedium').unlocked && gamePage.resPool.get('manuscript').value > 5000)  { gamePage.craft('compedium', 1);  }
         if (gamePage.workshop.getCraft('blueprint').unlocked && gamePage.resPool.get('compedium').value > 1550 && gamePage.resPool.get('blueprint').value < 450) { gamePage.craft('blueprint', 1); }
     }
 }, 5 * 1000);
