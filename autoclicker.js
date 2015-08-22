@@ -1,5 +1,6 @@
 //AUTOPRAY
 autoPray = setInterval(function() {
+    var unicornsMAX = 20000;
     var origTab = gamePage.activeTabId;
     var faith = gamePage.resPool.get('faith');
     var unicorns = gamePage.resPool.get('unicorns');
@@ -11,7 +12,7 @@ autoPray = setInterval(function() {
     }
     
     //Ziggurath Needed!
-    if (unicorns.value > 35000) {
+    if (unicorns.value > unicornsMAX) {
         gamePage.activeTabId = 'Religion'; gamePage.render();
         $(".btnContent:contains('Sacrifice Unicorns')").click();
         gamePage.activeTabId = origTab; gamePage.render();
@@ -23,6 +24,9 @@ starClick = setInterval(function() { $("#gameLog").find("input").click(); }, 1 *
  
 //AUTOCRAFT
 autoCraft = setInterval(function() {
+    var steelMAX = 20000;
+    var alloyMAX = 1500;
+    
     var resources = [
         ["wood",     "beam" ],
         ["minerals", "slab" ],
@@ -40,7 +44,7 @@ autoCraft = setInterval(function() {
     }
     
     if (gamePage.resPool.get("titanium").value / gamePage.resPool.get("titanium").maxValue > 0.98) {
-        //if (gamePage.workshop.getCraft('alloy').unlocked && gamePage.resPool.get('steel').value > 50000) { gamePage.craft('alloy', 1); }
+        if (gamePage.workshop.getCraft('alloy').unlocked && gamePage.resPool.get('steel').value > steelMAX && gamePage.resPool.get('alloy').value < alloyMAX) { gamePage.craft('alloy', 1); }
     }
     
 }, 1 * 500);
@@ -48,6 +52,12 @@ autoCraft = setInterval(function() {
 //AUTOHUNT
 // Start
 autoHunt = setInterval(function() {
+    var parchmentMAX = 6000;
+    var manuscriptMAX = 200;
+    var compediumMAX = 250;
+    var blueprintMIN = 450;
+    
+    
     var catpower = gamePage.resPool.get('manpower');
     if (catpower.value / catpower.maxValue > 0.98) {
         $("a:contains('Send hunters')").click();
@@ -57,14 +67,14 @@ autoHunt = setInterval(function() {
     var culture = gamePage.resPool.get('culture');
  
     if (culture.value / culture.maxValue > 0.98) {
-        if (gamePage.workshop.getCraft('manuscript').unlocked && gamePage.resPool.get('parchment').value > 6000) { gamePage.craft('manuscript', 1); }
+        if (gamePage.workshop.getCraft('manuscript').unlocked && gamePage.resPool.get('parchment').value > parchmentMAX) { gamePage.craft('manuscript', 1); }
     }
     
     var science = gamePage.resPool.get('science');
  
     if (science.value / science.maxValue > 0.98) {
-        if (gamePage.workshop.getCraft('compedium').unlocked && gamePage.resPool.get('manuscript').value > 200)  { gamePage.craft('compedium', 1);  }
-        if (gamePage.workshop.getCraft('blueprint').unlocked && gamePage.resPool.get('compedium').value > 250 && gamePage.resPool.get('blueprint').value < 450) { gamePage.craft('blueprint', 1); }
+        if (gamePage.workshop.getCraft('compedium').unlocked && gamePage.resPool.get('manuscript').value > manuscriptMAX)  { gamePage.craft('compedium', 1);  }
+        if (gamePage.workshop.getCraft('blueprint').unlocked && gamePage.resPool.get('compedium').value > compediumMAX && gamePage.resPool.get('blueprint').value < blueprintMIN) { gamePage.craft('blueprint', 1); }
     }
 }, 1 * 1000);
  
