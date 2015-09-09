@@ -49,7 +49,7 @@ autoCraft = setInterval(function() {
     }
         
     if (gamePage.resPool.get("unobtainium").value / gamePage.resPool.get("unobtainium").maxValue > 0.98) {
-        if (gamePage.workshop.getCraft('eludium').unlocked && gamePage.resPool.get('alloy').value > alloyMIN { gamePage.craft('eludium', 1); }
+        if (gamePage.workshop.getCraft('eludium').unlocked && gamePage.resPool.get('alloy').value > alloyMIN) { gamePage.craft('eludium', 1); }
     }
     
 }, 1 * 500);
