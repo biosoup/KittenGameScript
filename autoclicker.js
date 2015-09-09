@@ -1,6 +1,6 @@
 //AUTOPRAY
 autoPray = setInterval(function() {
-    var unicornsMAX = 20000;
+    var unicornsMAX = 50000;
     var origTab = gamePage.activeTabId;
     var faith = gamePage.resPool.get('faith');
     var unicorns = gamePage.resPool.get('unicorns');
@@ -25,7 +25,8 @@ starClick = setInterval(function() { $("#gameLog").find("input").click(); }, 1 *
 //AUTOCRAFT
 autoCraft = setInterval(function() {
     var steelMAX = 20000;
-    var alloyMAX = 1500;
+    var alloyMAX = 5000;
+    var alloyMIN = 3000;
     
     var resources = [
         ["wood",     "beam" ],
@@ -45,6 +46,9 @@ autoCraft = setInterval(function() {
     
     if (gamePage.resPool.get("titanium").value / gamePage.resPool.get("titanium").maxValue > 0.98) {
         if (gamePage.workshop.getCraft('alloy').unlocked && gamePage.resPool.get('steel').value > steelMAX && gamePage.resPool.get('alloy').value < alloyMAX) { gamePage.craft('alloy', 1); }
+        
+    if (gamePage.resPool.get("unobtainium").value / gamePage.resPool.get("unobtainium").maxValue > 0.98) {
+        if (gamePage.workshop.getCraft('eludium').unlocked && gamePage.resPool.get('alloy').value > alloyMIN { gamePage.craft('eludium', 1); }
     }
     
 }, 1 * 500);
@@ -53,9 +57,9 @@ autoCraft = setInterval(function() {
 // Start
 autoHunt = setInterval(function() {
     var parchmentMAX = 6000;
-    var manuscriptMAX = 200;
-    var compediumMAX = 250;
-    var blueprintMIN = 450;
+    var manuscriptMAX = 2000;
+    var compediumMAX = 2500;
+    var blueprintMIN = 4500;
     
     
     var catpower = gamePage.resPool.get('manpower');
