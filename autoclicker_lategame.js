@@ -42,7 +42,7 @@ autoCraft = setInterval(function() {
          && gamePage.workshop.getCraft(resources[i][1]).unlocked) {
             if(curRes.maxValue>10000) {
                 gamePage.craft(resources[i][1], 5);
-            } elseif(curRes.maxValue>1000000) {
+            } else if(curRes.maxValue>1000000) {
                 gamePage.craft(resources[i][1], 100);
             } else {
                 gamePage.craft(resources[i][1], 1);
