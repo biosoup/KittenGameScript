@@ -28,7 +28,7 @@ autoCraft = setInterval(function() {
     var alloyMAX = 5000;
     var alloyMIN = 2500;
     
-    var gearMIN = 100000;
+    var gearMIN = 5000;
     
     var resources = [
         ["wood",     "beam" ],

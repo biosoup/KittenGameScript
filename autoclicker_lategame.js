@@ -43,6 +43,7 @@ autoCraft = setInterval(function() {
     var steelMAX = 300000;
     var alloyMAX = 10000;
     var alloyMIN = 5000;
+    var gearMIN = 100000;
     
     var resources = [
         ["wood",     "beam" ],
@@ -89,6 +90,12 @@ autoCraft = setInterval(function() {
     if (gamePage.resPool.get("unobtainium").value / gamePage.resPool.get("unobtainium").maxValue > 0.98) {
         if (gamePage.workshop.getCraft('eludium').unlocked && gamePage.resPool.get('alloy').value > alloyMIN) { 
             gamePage.craft('eludium', 1); 
+        }
+    }
+    
+    if (gamePage.resPool.get("steel").value > steelMAX) {
+        if (gamePage.workshop.getCraft('gear').unlocked && gamePage.resPool.get('gear').value > gearMIN) { 
+            gamePage.craft('gear', 5); 
         }
     }
     
