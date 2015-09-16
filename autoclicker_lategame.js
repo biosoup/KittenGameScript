@@ -4,6 +4,8 @@ autoPray = setInterval(function() {
     var origTab = gamePage.activeTabId;
     var faith = gamePage.resPool.get('faith');
     var unicorns = gamePage.resPool.get('unicorns');
+    var alicorns = gamePage.resPool.get('alicorns');
+    var tears = gamePage.resPool.get('tears');
  
     if (faith.value / faith.maxValue > 0.99) {
         gamePage.activeTabId = 'Religion'; gamePage.render();
@@ -15,6 +17,20 @@ autoPray = setInterval(function() {
     if (unicorns.value > unicornsMAX) {
         gamePage.activeTabId = 'Religion'; gamePage.render();
         $(".btnContent:contains('Sacrifice Unicorns')").click();
+        gamePage.activeTabId = origTab; gamePage.render();
+    }
+    
+    //Alicorns Needed to make Time Crystals!
+    if (alicorns.value > 30) {
+        gamePage.activeTabId = 'Religion'; gamePage.render();
+        //$(".btnContent:contains('Sacrifice Unicorns')").click();
+        gamePage.activeTabId = origTab; gamePage.render();
+    }
+    
+    //BLS produce
+    if (tears.value > 11000) {
+        gamePage.activeTabId = 'Religion'; gamePage.render();
+        $(".btnContent:contains('Refine Tears')").click();
         gamePage.activeTabId = origTab; gamePage.render();
     }
 }, 10 * 1000);
@@ -55,11 +71,25 @@ autoCraft = setInterval(function() {
     }
     
     if (gamePage.resPool.get("titanium").value / gamePage.resPool.get("titanium").maxValue > 0.98) {
-        if (gamePage.workshop.getCraft('alloy').unlocked && gamePage.resPool.get('steel').value > steelMAX && gamePage.resPool.get('alloy').value < alloyMAX) { gamePage.craft('alloy', 1); }
+        if (gamePage.workshop.getCraft('alloy').unlocked && gamePage.resPool.get('steel').value > steelMAX && gamePage.resPool.get('alloy').value < alloyMAX) {
+            if(curRes.maxValue>10000000) { //10Mil
+                gamePage.craft('alloy', 5000);
+            } else if(curRes.maxValue>1000000) { //1Mil
+                gamePage.craft('alloy', 500);
+            } else if(curRes.maxValue>250000) { //250tis
+                gamePage.craft('alloy', 50);
+            } else if(curRes.maxValue>10000) { //10tisic
+                gamePage.craft('alloy', 5);
+            } else {
+                gamePage.craft('alloy', 1);
+            }
+        }
     }
         
     if (gamePage.resPool.get("unobtainium").value / gamePage.resPool.get("unobtainium").maxValue > 0.98) {
-        if (gamePage.workshop.getCraft('eludium').unlocked && gamePage.resPool.get('alloy').value > alloyMIN) { gamePage.craft('eludium', 1); }
+        if (gamePage.workshop.getCraft('eludium').unlocked && gamePage.resPool.get('alloy').value > alloyMIN) { 
+            gamePage.craft('eludium', 1); 
+        }
     }
     
 }, 1 * 500);
