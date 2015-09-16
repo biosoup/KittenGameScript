@@ -28,6 +28,8 @@ autoCraft = setInterval(function() {
     var alloyMAX = 5000;
     var alloyMIN = 2500;
     
+    var gearMIN = 100000;
+    
     var resources = [
         ["wood",     "beam" ],
         ["minerals", "slab" ],
@@ -53,11 +55,21 @@ autoCraft = setInterval(function() {
     }
     
     if (gamePage.resPool.get("titanium").value / gamePage.resPool.get("titanium").maxValue > 0.98) {
-        if (gamePage.workshop.getCraft('alloy').unlocked && gamePage.resPool.get('steel').value > steelMAX && gamePage.resPool.get('alloy').value < alloyMAX) { gamePage.craft('alloy', 1); }
+        if (gamePage.workshop.getCraft('alloy').unlocked && gamePage.resPool.get('steel').value > steelMAX && gamePage.resPool.get('alloy').value < alloyMAX) { 
+            gamePage.craft('alloy', 1); 
+        }
     }
         
     if (gamePage.resPool.get("unobtainium").value / gamePage.resPool.get("unobtainium").maxValue > 0.98) {
-        if (gamePage.workshop.getCraft('eludium').unlocked && gamePage.resPool.get('alloy').value > alloyMIN) { gamePage.craft('eludium', 1); }
+        if (gamePage.workshop.getCraft('eludium').unlocked && gamePage.resPool.get('alloy').value > alloyMIN) { 
+            gamePage.craft('eludium', 1); 
+        }
+    }
+    
+    if (gamePage.resPool.get("steel").value > steelMAX) {
+        if (gamePage.workshop.getCraft('gear').unlocked && gamePage.resPool.get('gear').value > gearMIN) { 
+            gamePage.craft('gear', 5); 
+        }
     }
     
 }, 1 * 500);
