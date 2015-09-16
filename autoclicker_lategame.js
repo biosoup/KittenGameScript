@@ -41,9 +41,11 @@ autoCraft = setInterval(function() {
         if (curRes.value / curRes.maxValue > 0.99
          && gamePage.workshop.getCraft(resources[i][1]).unlocked) {
             if(curRes.maxValue>10000000) { //10Mil
-                gamePage.craft(resources[i][1], 1000);
+                gamePage.craft(resources[i][1], 5000);
             } else if(curRes.maxValue>1000000) { //1Mil
-                gamePage.craft(resources[i][1], 100);
+                gamePage.craft(resources[i][1], 500);
+            } else if(curRes.maxValue>250000) { //250tis
+                gamePage.craft(resources[i][1], 50);
             } else if(curRes.maxValue>10000) { //10tisic
                 gamePage.craft(resources[i][1], 5);
             } else {
