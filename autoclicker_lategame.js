@@ -44,6 +44,7 @@ autoCraft = setInterval(function() {
     var alloyMAX = 10000;
     var alloyMIN = 5000;
     var gearMIN = 100000;
+    var shipMAX = 5000;
     
     var resources = [
         ["wood",     "beam" ],
@@ -96,6 +97,18 @@ autoCraft = setInterval(function() {
     if (gamePage.resPool.get("steel").value > steelMAX) {
         if (gamePage.workshop.getCraft('gear').unlocked && gamePage.resPool.get('gear').value > gearMIN) { 
             gamePage.craft('gear', 5); 
+        }
+    }
+    
+    if (gamePage.resPool.get("alloy").value > alloyMAX) {
+        if (gamePage.workshop.getCraft('tanker').unlocked && gamePage.resPool.get('ship').value > shipMAX) { 
+            gamePage.craft('tanker', 1); 
+        }
+    }
+    
+    if (gamePage.resPool.get("ship").value < shipMAX) {
+        if (gamePage.workshop.getCraft('ship').unlocked && gamePage.resPool.get('scaffold').value > 10000 && gamePage.resPool.get('plate').value > 15000 && gamePage.resPool.get('starchart').value > 1500) { 
+            gamePage.craft('ship', 1); 
         }
     }
     
