@@ -1,6 +1,6 @@
 //AUTOPRAY
 autoPray = setInterval(function() {
-    var unicornsMAX = 20000;
+    var unicornsMAX = 200000;
     var origTab = gamePage.activeTabId;
     var faith = gamePage.resPool.get('faith');
     var unicorns = gamePage.resPool.get('unicorns');
@@ -24,9 +24,9 @@ starClick = setInterval(function() { $("#gameLog").find("input").click(); }, 1 *
  
 //AUTOCRAFT
 autoCraft = setInterval(function() {
-    var steelMAX = 20000;
-    var alloyMAX = 5000;
-    var alloyMIN = 2500;
+    var steelMAX = 300000;
+    var alloyMAX = 10000;
+    var alloyMIN = 5000;
     
     var resources = [
         ["wood",     "beam" ],
@@ -64,9 +64,9 @@ autoCraft = setInterval(function() {
 // Start
 autoHunt = setInterval(function() {
     var parchmentMAX = 6000;
-    var manuscriptMAX = 2000;
-    var compediumMAX = 2500;
-    var blueprintMIN = 4500;
+    var manuscriptMAX = 20000;
+    var compediumMAX = 25000;
+    var blueprintMIN = 45000;
     
     
     var catpower = gamePage.resPool.get('manpower');
