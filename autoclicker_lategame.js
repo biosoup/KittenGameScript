@@ -46,6 +46,7 @@ autoCraft = setInterval(function() {
     var gearMIN = 100000;
     var shipMAX = 5000;
     
+    //make selected resources
     var resources = [
         ["wood",     "beam" ],
         ["minerals", "slab" ],
@@ -72,6 +73,7 @@ autoCraft = setInterval(function() {
         }
     }
     
+    //lets make alloys
     if (gamePage.resPool.get("titanium").value / gamePage.resPool.get("titanium").maxValue > 0.98) {
         if (gamePage.workshop.getCraft('alloy').unlocked && gamePage.resPool.get('steel').value > steelMAX && gamePage.resPool.get('alloy').value < alloyMAX) {
             if(curRes.maxValue>10000000) { //10Mil
@@ -87,25 +89,29 @@ autoCraft = setInterval(function() {
             }
         }
     }
-        
+     
+    //lets make eludium
     if (gamePage.resPool.get("unobtainium").value / gamePage.resPool.get("unobtainium").maxValue > 0.98) {
         if (gamePage.workshop.getCraft('eludium').unlocked && gamePage.resPool.get('alloy').value > alloyMIN) { 
             gamePage.craft('eludium', 1); 
         }
     }
     
+    //lets make gears
     if (gamePage.resPool.get("steel").value > steelMAX) {
         if (gamePage.workshop.getCraft('gear').unlocked && gamePage.resPool.get('gear').value > gearMIN) { 
             gamePage.craft('gear', 5); 
         }
     }
     
+    //lets make tankes
     if (gamePage.resPool.get("alloy").value > alloyMAX) {
         if (gamePage.workshop.getCraft('tanker').unlocked && gamePage.resPool.get('ship').value > shipMAX) { 
             gamePage.craft('tanker', 1); 
         }
     }
     
+    //lets make ships
     if (gamePage.resPool.get("ship").value < shipMAX) {
         if (gamePage.workshop.getCraft('ship').unlocked && gamePage.resPool.get('scaffold').value > 10000 && gamePage.resPool.get('plate').value > 15000 && gamePage.resPool.get('starchart').value > 1500) { 
             gamePage.craft('ship', 1); 
