@@ -112,14 +112,20 @@ autoHunt = setInterval(function() {
     var culture = gamePage.resPool.get('culture');
  
     if (culture.value / culture.maxValue > 0.98) {
-        if (gamePage.workshop.getCraft('manuscript').unlocked && gamePage.resPool.get('parchment').value > parchmentMAX) { gamePage.craft('manuscript', 1); }
+        if (gamePage.workshop.getCraft('manuscript').unlocked && gamePage.resPool.get('parchment').value > parchmentMAX) { 
+            gamePage.craft('manuscript', 5); 
+        }
     }
     
     var science = gamePage.resPool.get('science');
  
     if (science.value / science.maxValue > 0.98) {
-        if (gamePage.workshop.getCraft('compedium').unlocked && gamePage.resPool.get('manuscript').value > manuscriptMAX)  { gamePage.craft('compedium', 1);  }
-        if (gamePage.workshop.getCraft('blueprint').unlocked && gamePage.resPool.get('compedium').value > compediumMAX && gamePage.resPool.get('blueprint').value < blueprintMIN) { gamePage.craft('blueprint', 1); }
+        if (gamePage.workshop.getCraft('compedium').unlocked && gamePage.resPool.get('manuscript').value > manuscriptMAX)  { 
+            gamePage.craft('compedium', 5);  
+        }
+        if (gamePage.workshop.getCraft('blueprint').unlocked && gamePage.resPool.get('compedium').value > compediumMAX && gamePage.resPool.get('blueprint').value < blueprintMIN) { 
+            gamePage.craft('blueprint', 5); 
+        }
     }
 }, 1 * 1000);
  
@@ -132,5 +138,15 @@ autoCatnip = setInterval(function() {
     if (catnip.perTickUI < 0) { return; }
     if (catnip.value / catnip.maxValue < 0.99) { return; }
     if (calendar.season == 2 && calendar.day > 50) { return; }
-    gamePage.craft('wood', 5);
+        if(catnip.maxValue>10000000) { //10Mil
+                gamePage.craft('wood', 5000);
+            } else if(catnip.maxValue>1000000) { //1Mil
+                gamePage.craft('wood', 500);
+            } else if(catnip.maxValue>250000) { //250tis
+                gamePage.craft('wood', 50);
+            } else if(catnip.maxValue>10000) { //10tisic
+                gamePage.craft('wood', 5);
+            } else {
+                gamePage.craft('wood', 1);
+            }
 }, 1 * 500);
