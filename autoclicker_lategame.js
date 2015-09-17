@@ -44,7 +44,7 @@ autoCraft = setInterval(function() {
     var alloyMAX = 10000;
     var alloyMIN = 5000;
     var gearMIN = 100000;
-    var shipMAX = 5000;
+    var shipMAX = 25000;
     
     //make selected resources
     var resources = [
@@ -113,8 +113,10 @@ autoCraft = setInterval(function() {
     
     //lets make ships
     if (gamePage.resPool.get("ship").value < shipMAX) {
-        if (gamePage.workshop.getCraft('ship').unlocked && gamePage.resPool.get('scaffold').value > 10000 && gamePage.resPool.get('plate').value > 15000 && gamePage.resPool.get('starchart').value > 1500) { 
+        if (gamePage.workshop.getCraft('ship').unlocked && gamePage.resPool.get('scaffold').value > 100000 && gamePage.resPool.get('plate').value > 15000 && gamePage.resPool.get('starchart').value > 30000) { 
             gamePage.craft('ship', 1); 
+        } else if (gamePage.resPool.get('scaffold').value < 100000) {
+            gamePage.craft('scaffold', 5000); 
         }
     }
     
