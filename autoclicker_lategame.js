@@ -23,7 +23,7 @@ autoPray = setInterval(function() {
     //Alicorns Needed to make Time Crystals!
     if (alicorns.value > 30) {
         gamePage.activeTabId = 'Religion'; gamePage.render();
-        //$(".btnContent:contains('Sacrifice Unicorns')").click();
+        $(".btnContent:contains('Sacrifice Alicorns')").click();
         gamePage.activeTabId = origTab; gamePage.render();
     }
     
@@ -44,7 +44,8 @@ autoCraft = setInterval(function() {
     var alloyMAX = 10000;
     var alloyMIN = 5000;
     var gearMIN = 100000;
-    var shipMAX = 25000;
+    var shipMIN = 25000;
+    var tankerMAX = 15000;
     
     //make selected resources
     var resources = [
@@ -105,14 +106,14 @@ autoCraft = setInterval(function() {
     }
     
     //lets make tankes
-    if (gamePage.resPool.get("alloy").value > alloyMAX) {
-        if (gamePage.workshop.getCraft('tanker').unlocked && gamePage.resPool.get('ship').value > shipMAX) { 
+    if (gamePage.resPool.get("alloy").value > alloyMAX && gamePage.resPool.get("tanker").value < tankerMAX) {
+        if (gamePage.workshop.getCraft('tanker').unlocked && gamePage.resPool.get('ship').value > shipMIN) { 
             gamePage.craft('tanker', 1); 
         }
     }
     
     //lets make ships
-    if (gamePage.resPool.get("ship").value < shipMAX) {
+    if (gamePage.resPool.get("ship").value < shipMIN) {
         if (gamePage.workshop.getCraft('ship').unlocked && gamePage.resPool.get('scaffold').value > 100000 && gamePage.resPool.get('plate').value > 15000 && gamePage.resPool.get('starchart').value > 30000) { 
             gamePage.craft('ship', 1); 
         } else if (gamePage.resPool.get('scaffold').value < 100000) {
