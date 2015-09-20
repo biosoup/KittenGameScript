@@ -59,8 +59,7 @@ autoCraft = setInterval(function() {
  
     for (var i = 0; i < resources.length; i++) {
         var curRes = gamePage.resPool.get(resources[i][0]);
-        if (curRes.value / curRes.maxValue > 0.99
-         && gamePage.workshop.getCraft(resources[i][1]).unlocked) {
+        if (curRes.value / curRes.maxValue > 0.99 && gamePage.workshop.getCraft(resources[i][1]).unlocked) {
             if(curRes.maxValue > 10000000) { //10Mil
                 gamePage.craft(resources[i][1], 5000);
             } else if(curRes.maxValue > 1000000) { //1Mil
@@ -117,7 +116,7 @@ autoCraft = setInterval(function() {
     if (gamePage.resPool.get("ship").value < shipMIN) {
         if (gamePage.workshop.getCraft('ship').unlocked && gamePage.resPool.get('scaffold').value > scaffoldMIN && gamePage.resPool.get('plate').value > 15000 && gamePage.resPool.get('starchart').value > 30000) { 
             gamePage.craft('ship', 1); 
-        } else if (gamePage.resPool.get('scaffold').value < scaffoldMIN) {
+        } else if (gamePage.resPool.get('scaffold').value < scaffoldMIN && gamePage.resPool.get('beam').value > 20000) {
             gamePage.craft('scaffold', 5); 
         }
     }
