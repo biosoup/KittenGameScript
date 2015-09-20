@@ -61,13 +61,13 @@ autoCraft = setInterval(function() {
         var curRes = gamePage.resPool.get(resources[i][0]);
         if (curRes.value / curRes.maxValue > 0.99
          && gamePage.workshop.getCraft(resources[i][1]).unlocked) {
-            if(curRes.maxValue>10000000) { //10Mil
+            if(curRes.maxValue > 10000000) { //10Mil
                 gamePage.craft(resources[i][1], 5000);
-            } else if(curRes.maxValue>1000000) { //1Mil
+            } else if(curRes.maxValue > 1000000) { //1Mil
                 gamePage.craft(resources[i][1], 500);
-            } else if(curRes.maxValue>250000) { //250tis
+            } else if(curRes.maxValue > 250000) { //250tis
                 gamePage.craft(resources[i][1], 50);
-            } else if(curRes.maxValue>10000) { //10tisic
+            } else if(curRes.maxValue > 50000) { //50tisic
                 gamePage.craft(resources[i][1], 5);
             } else {
                 gamePage.craft(resources[i][1], 1);
@@ -80,11 +80,11 @@ autoCraft = setInterval(function() {
         if (gamePage.workshop.getCraft('alloy').unlocked && gamePage.resPool.get('steel').value > steelMAX && gamePage.resPool.get('alloy').value < alloyMAX) {
             if(curRes.maxValue>10000000) { //10Mil
                 gamePage.craft('alloy', 5000);
-            } else if(curRes.maxValue>1000000) { //1Mil
+            } else if(curRes.maxValue > 1000000) { //1Mil
                 gamePage.craft('alloy', 500);
-            } else if(curRes.maxValue>250000) { //250tis
+            } else if(curRes.maxValue > 250000) { //250tis
                 gamePage.craft('alloy', 50);
-            } else if(curRes.maxValue>10000) { //10tisic
+            } else if(curRes.maxValue > 50000) { //50tisic
                 gamePage.craft('alloy', 5);
             } else {
                 gamePage.craft('alloy', 1);
@@ -168,13 +168,13 @@ autoCatnip = setInterval(function() {
     if (catnip.perTickUI < 0) { return; }
     if (catnip.value / catnip.maxValue < 0.99) { return; }
     if (calendar.season == 2 && calendar.day > 50) { return; }
-        if(catnip.maxValue>10000000) { //10Mil
+            if(catnip.maxValue > 10000000) { //10Mil
                 gamePage.craft('wood', 5000);
-            } else if(catnip.maxValue>1000000) { //1Mil
+            } else if(catnip.maxValue > 1000000) { //1Mil
                 gamePage.craft('wood', 500);
-            } else if(catnip.maxValue>250000) { //250tis
+            } else if(catnip.maxValue > 250000) { //250tis
                 gamePage.craft('wood', 50);
-            } else if(catnip.maxValue>10000) { //10tisic
+            } else if(catnip.maxValue > 50000) { //50tisic
                 gamePage.craft('wood', 5);
             } else {
                 gamePage.craft('wood', 1);
