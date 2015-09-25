@@ -138,6 +138,11 @@ autoHunt = setInterval(function() {
         if (gamePage.workshop.getCraft('parchment').unlocked)  { gamePage.craftAll('parchment');  }
     }
     
+    var furs = gamePage.resPool.get('furs');
+    if (furs.value  > 10000) {
+        if (gamePage.workshop.getCraft('parchment').unlocked)  { gamePage.craftAll('parchment');  }
+    }
+    
     var culture = gamePage.resPool.get('culture');
  
     if (culture.value / culture.maxValue > 0.98) {
