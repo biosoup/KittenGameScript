@@ -130,7 +130,7 @@ autoHunt = setInterval(function() {
     var parchmentMAX = 6000;
     var manuscriptMAX = 20000;
     var compediumMAX = 25000;
-    var blueprintMIN = 45000;
+    var blueprintMIN = 450000;
     
     
     var catpower = gamePage.resPool.get('manpower');
