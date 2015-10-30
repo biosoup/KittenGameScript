@@ -51,7 +51,6 @@ autoCraft = setInterval(function() {
     var resources = [
         ["wood",     "beam" ],
         ["minerals", "slab" ],
-        ["coal",     "steel"],
         ["iron",     "plate"],
         ["oil",     "kerosene"]
        
@@ -75,16 +74,33 @@ autoCraft = setInterval(function() {
         }
     }
     
+    //lets make steel
+    if (gamePage.resPool.get("iron").value / gamePage.resPool.get("iron").maxValue > 0.98) {
+        if (gamePage.workshop.getCraft('steel').unlocked && gamePage.resPool.get('coal').value / gamePage.resPool.get("coal").maxValue > 0.98) {
+            if(gamePage.resPool.get("coal").maxValue>10000000) { //10Mil
+                gamePage.craft('steel', 5000);
+            } else if(gamePage.resPool.get("coal").maxValue>1000000) { //1Mil
+                gamePage.craft('steel', 500);
+            } else if(gamePage.resPool.get("coal").maxValue>250000) { //250tis
+                gamePage.craft('steel', 50);
+            } else if(gamePage.resPool.get("coal").maxValue>10000) { //10tisic
+                gamePage.craft('steel', 5);
+            } else {
+                gamePage.craft('steel', 1);
+            }
+        }
+    }
+    
     //lets make alloys
     if (gamePage.resPool.get("titanium").value / gamePage.resPool.get("titanium").maxValue > 0.98) {
         if (gamePage.workshop.getCraft('alloy').unlocked && gamePage.resPool.get('steel').value > steelMAX && gamePage.resPool.get('alloy').value < alloyMAX) {
-            if(curRes.maxValue>10000000) { //10Mil
+            if(gamePage.resPool.get("titanium").maxValue>10000000) { //10Mil
                 gamePage.craft('alloy', 5000);
-            } else if(curRes.maxValue>1000000) { //1Mil
+            } else if(gamePage.resPool.get("titanium").maxValue>1000000) { //1Mil
                 gamePage.craft('alloy', 500);
-            } else if(curRes.maxValue>250000) { //250tis
+            } else if(gamePage.resPool.get("titanium").maxValue>250000) { //250tis
                 gamePage.craft('alloy', 50);
-            } else if(curRes.maxValue>10000) { //10tisic
+            } else if(gamePage.resPool.get("titanium").maxValue>10000) { //10tisic
                 gamePage.craft('alloy', 5);
             } else {
                 gamePage.craft('alloy', 1);
