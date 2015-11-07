@@ -28,11 +28,12 @@ autoPray = setInterval(function() {
     }
     
     //BLS produce
+    /*
     if (tears.value > 11000) {
         gamePage.activeTabId = 'Religion'; gamePage.render();
         $(".btnContent:contains('Refine Tears')").click();
         gamePage.activeTabId = origTab; gamePage.render();
-    }
+    } */
 }, 10 * 1000);
  
 //AUTO OBSERVATORY
@@ -60,7 +61,9 @@ autoCraft = setInterval(function() {
         var curRes = gamePage.resPool.get(resources[i][0]);
         if (curRes.value / curRes.maxValue > 0.99
          && gamePage.workshop.getCraft(resources[i][1]).unlocked) {
-            if(curRes.maxValue>10000000) { //10Mil
+            if(curRes.maxValue>100000000) { //100Mil
+                gamePage.craft(resources[i][1], 50000);
+            } else if(curRes.maxValue>10000000) { //10Mil
                 gamePage.craft(resources[i][1], 5000);
             } else if(curRes.maxValue>1000000) { //1Mil
                 gamePage.craft(resources[i][1], 500);
@@ -77,7 +80,9 @@ autoCraft = setInterval(function() {
     //lets make steel
     if (gamePage.resPool.get("iron").value / gamePage.resPool.get("iron").maxValue > 0.98) {
         if (gamePage.workshop.getCraft('steel').unlocked && gamePage.resPool.get('coal').value / gamePage.resPool.get("coal").maxValue > 0.98) {
-            if(gamePage.resPool.get("coal").maxValue>10000000) { //10Mil
+            if(gamePage.resPool.get("coal").maxValue>100000000) { //100Mil
+                gamePage.craft('steel', 50000);
+            } else if(gamePage.resPool.get("coal").maxValue>10000000) { //10Mil
                 gamePage.craft('steel', 5000);
             } else if(gamePage.resPool.get("coal").maxValue>1000000) { //1Mil
                 gamePage.craft('steel', 500);
