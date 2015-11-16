@@ -1,3 +1,8 @@
+//GATHER CATNIP
+starClick = setInterval(function() {
+    $(".btnContent:contains('Gather catnip')").click();
+}, 1 * 10);
+
 //AUTOPRAY
 autoPray = setInterval(function() {
     var unicornsMAX = 200000;
