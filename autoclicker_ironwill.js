@@ -154,7 +154,7 @@ autoCraft = setInterval(function() {
 // Start
 autoHunt = setInterval(function() {
     var parchmentMAX = 6000;
-    var manuscriptMAX = 20000;
+    var manuscriptMAX = 450000;
     var compediumMAX = 25000;
     var blueprintMIN = 450000;
     
